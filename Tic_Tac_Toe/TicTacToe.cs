@@ -37,7 +37,12 @@ namespace Tic_Tac_Toe
         {           
             Console.WriteLine("Enter Location index from 1 to 9");
             int location = Convert.ToInt32(Console.ReadLine());
-            if (board[location] == ' ')
+            if(location < 1 || location > 9)
+            {
+                Console.WriteLine("Not valid index");
+                MoveToLocation(letter);
+            }
+            else if (board[location] == ' ')
             {
                 board[location] = letter;
             }
