@@ -10,7 +10,8 @@ namespace Tic_Tac_Toe
             TicTacToe ticTacToe = new TicTacToe();
             ticTacToe.CreateBoard();
             char playerLetter = ticTacToe.PlayerChoice();
-            ticTacToe.MoveToLocation(playerLetter);
+            int location = ticTacToe.MoveToLocation();
+            ticTacToe.MakeAMove(location, playerLetter);
             ticTacToe.ShowBoard();
 
         }
