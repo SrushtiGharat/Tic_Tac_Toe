@@ -7,7 +7,11 @@ namespace Tic_Tac_Toe
 {
     class TicTacToe
     {
-        char[] board = new char[10];
+        char[] board;
+        public TicTacToe()
+        {
+            board = new char[10];
+        }
         public void CreateBoard()
         {          
             for( int i = 1; i<= 9; i++)
@@ -29,6 +33,20 @@ namespace Tic_Tac_Toe
             PlayerChoice();
             return ' ';
         }
+        public void MoveToLocation(char letter)
+        {           
+            Console.WriteLine("Enter Location index from 1 to 9");
+            int location = Convert.ToInt32(Console.ReadLine());
+            if (board[location] == ' ')
+            {
+                board[location] = letter;
+            }
+            else
+            {
+                Console.WriteLine("Location already filled");
+                MoveToLocation(letter);
+            }
+        }
         public void ShowBoard()
         {
             int i, j;
@@ -38,7 +56,7 @@ namespace Tic_Tac_Toe
                 {
                     Console.WriteLine("\n");
                 }
-                Console.Write(board[i]+".");
+                Console.Write(board[i]+"|");
             }
         }
     }

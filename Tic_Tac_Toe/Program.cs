@@ -8,7 +8,9 @@ namespace Tic_Tac_Toe
         {
             Console.WriteLine("Welcome to Tic-Tac-Toe");
             TicTacToe ticTacToe = new TicTacToe();
+            ticTacToe.CreateBoard();
             char playerLetter = ticTacToe.PlayerChoice();
+            ticTacToe.MoveToLocation(playerLetter);
             ticTacToe.ShowBoard();
 
         }
