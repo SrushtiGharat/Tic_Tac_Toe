@@ -14,5 +14,12 @@ namespace Tic_Tac_Toe
                 board[i] = ' ';
             }
         }
+        
+        public char PlayerChoice()
+        {
+            Console.WriteLine("Enter X or O");
+            char choice = Convert.ToChar(Console.ReadLine());
+            return choice;
+        }
     }
 }
