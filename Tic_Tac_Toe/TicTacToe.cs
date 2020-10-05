@@ -22,7 +22,7 @@ namespace Tic_Tac_Toe
             Console.WriteLine("Enter X or O");
             choice = Convert.ToChar(Console.ReadLine());
             if(choice == 'X' || choice == 'O')
-            {
+            {               
                 return choice;
             }
             
@@ -38,7 +38,7 @@ namespace Tic_Tac_Toe
                 {
                     Console.WriteLine("\n");
                 }
-                Console.Write(board[i]+" ");
+                Console.Write(board[i]+".");
             }
         }
     }
