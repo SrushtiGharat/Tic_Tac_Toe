@@ -9,9 +9,11 @@ namespace Tic_Tac_Toe
         public void UseCase1()
         {
             char[] board = new char[10];
-            for(int i = 1; i<= 9; i++)
+            int i;
+            for(i = 1; i<= 9; i++)
             {
                 board[i] = ' ';
+
             }
         }
     }
