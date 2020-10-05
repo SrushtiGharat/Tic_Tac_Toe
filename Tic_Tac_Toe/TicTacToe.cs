@@ -6,14 +6,12 @@ namespace Tic_Tac_Toe
 {
     class TicTacToe
     {
-        public void UseCase1()
+        public void CreateBoard()
         {
             char[] board = new char[10];
-            int i;
-            for(i = 1; i<= 9; i++)
+            for( int i = 1; i<= 9; i++)
             {
                 board[i] = ' ';
-
             }
         }
     }

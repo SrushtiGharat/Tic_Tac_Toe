@@ -6,8 +6,9 @@ namespace Tic_Tac_Toe
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Tic-Tac-Toe");
             TicTacToe ticTacToe = new TicTacToe();
-            ticTacToe.UseCase1();
+            ticTacToe.CreateBoard();
 
         }
     }
