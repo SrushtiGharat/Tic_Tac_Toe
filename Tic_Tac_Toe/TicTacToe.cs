@@ -17,9 +17,16 @@ namespace Tic_Tac_Toe
         
         public char PlayerChoice()
         {
+            char choice;
             Console.WriteLine("Enter X or O");
-            char choice = Convert.ToChar(Console.ReadLine());
-            return choice;
+            choice = Convert.ToChar(Console.ReadLine());
+            if(choice == 'X' || choice == 'O')
+            {
+                return choice;
+            }
+            
+            PlayerChoice();
+            return ' ';
         }
     }
 }

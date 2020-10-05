@@ -11,7 +11,6 @@ namespace Tic_Tac_Toe
             char playerLetter = ticTacToe.PlayerChoice();
             char compuerLetter = ticTacToe.PlayerChoice();
 
-
         }
     }
 }
