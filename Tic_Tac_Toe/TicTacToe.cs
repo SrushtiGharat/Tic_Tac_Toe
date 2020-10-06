@@ -118,10 +118,16 @@ namespace Tic_Tac_Toe
             }
             return true;
         }
-        public int GetComputerMove(char computerLetter)
+        public int GetComputerMove(char computerLetter,char playerLetter)
         {
             int winningMove = GetWinningMove(computerLetter);
-            return winningMove;
+            if (winningMove != 0)
+                return winningMove;
+            int playerWinningMove = GetWinningMove(playerLetter);
+            if (playerWinningMove != 0)
+                return playerWinningMove;
+            return 0;
+            
         }
         public int GetWinningMove(char computerLetter)
         {
