@@ -30,17 +30,7 @@ namespace Tic_Tac_Toe
                     location = ticTacToe.GetComputerMove(computerLetter,playerLetter);
                     ticTacToe.MakeAMove(location, computerLetter);
                 }               
-                ticTacToe.ShowBoard();
-                if (ticTacToe.CheckWinner(playerLetter) == true)
-                {
-                    Console.WriteLine(player + " Has Won");
-                    break;
-                }
-                if (ticTacToe.CheckDraw())
-                {
-                    Console.WriteLine("It's a tie");
-                    break;
-                }
+                
                 player = ticTacToe.PlayerChance(player);
             }
 

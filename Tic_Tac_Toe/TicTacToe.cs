@@ -132,6 +132,15 @@ namespace Tic_Tac_Toe
                 if (isSpaceFree(i))
                     return cornerMoves[i];
             }
+            if (isSpaceFree(5))
+                return 5;
+            int[] sideMoves = { 2, 4, 6, 8 };
+            for (int i = 0; i < sideMoves.Length; i++)
+            {
+                if (isSpaceFree(i))
+                    return sideMoves[i];
+            }
+
             return 0;
             
         }
