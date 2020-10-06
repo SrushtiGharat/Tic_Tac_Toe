@@ -15,7 +15,7 @@ namespace Tic_Tac_Toe
         {
             board = new char[10];
         }
-        public string PlayerChance()
+        public string PlayerStartingFirst()
         {
             Random random = new Random();
             int toss = random.Next(0, 2);
@@ -24,6 +24,14 @@ namespace Tic_Tac_Toe
                 return "USER";
             }
             return "COMPUTER";
+        }
+        public string PlayerChance(string player)
+        {
+            if(player == "USER")
+            {
+                return "COMPUTER";
+            }
+            return "USER";
         }
         public void CreateBoard()
         {          
@@ -56,13 +64,18 @@ namespace Tic_Tac_Toe
                 MoveToLocation();
                 
             }
-            if (board[location] != ' ')
+            if (isSpaceFree(location) == false)
             {
                 Console.WriteLine("Location already filled");
                 MoveToLocation();
             }
             return location;
             
+        }
+        public bool isSpaceFree(int location)
+        {
+            return (board[location] == ' ') ; 
+
         }
         public void MakeAMove(int location,char letter)
         {
@@ -79,6 +92,26 @@ namespace Tic_Tac_Toe
                 }
                 Console.Write(board[i]+"|");
             }
+            Console.WriteLine("\n");
+        }
+        public bool CheckWinner(char playerLetter)
+        {
+            return ((board[1] == playerLetter && board[2] == playerLetter && board[3] == playerLetter)||
+                    (board[1] == playerLetter && board[4] == playerLetter && board[7] == playerLetter)||
+                    (board[1] == playerLetter && board[5] == playerLetter && board[9] == playerLetter)||
+                    (board[3] == playerLetter && board[6] == playerLetter && board[9] == playerLetter)||
+                    (board[3] == playerLetter && board[5] == playerLetter && board[7] == playerLetter)||
+                    (board[7] == playerLetter && board[8] == playerLetter && board[9] == playerLetter)
+                   );
+        }
+        public bool CheckDraw()
+        {
+            for(int i = 0;i <= 9; i++)
+            {
+                if (isSpaceFree(i) == true)
+                    return false;
+            }
+            return true;
         }
     }
 }
