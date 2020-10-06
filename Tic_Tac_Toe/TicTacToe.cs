@@ -41,18 +41,15 @@ namespace Tic_Tac_Toe
             {
                 Console.WriteLine("Not valid index");
                 MoveToLocation();
-                return 0;
+                
             }
-            else if (board[location] == ' ')
-            {
-                return location;
-            }
-            else
+            if (board[location] != ' ')
             {
                 Console.WriteLine("Location already filled");
                 MoveToLocation();
-                return 0;
+                
             }
+            return location;
             
         }
         public void MakeAMove(int location,char letter)
