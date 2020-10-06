@@ -126,6 +126,12 @@ namespace Tic_Tac_Toe
             int playerWinningMove = GetWinningMove(playerLetter);
             if (playerWinningMove != 0)
                 return playerWinningMove;
+            int[] cornerMoves = { 1, 3, 7, 9 };
+            for(int i = 0;i < cornerMoves.Length; i++)
+            {
+                if (isSpaceFree(i))
+                    return cornerMoves[i];
+            }
             return 0;
             
         }
@@ -137,9 +143,11 @@ namespace Tic_Tac_Toe
                 {
                     MakeAMove(i, computerLetter);
                     if (CheckWinner(computerLetter))
-                        return i;
-                    else
+                    {
                         board[i] = ' ';
+                        return i;
+                    }
+                    board[i] = ' ';
                 }
             }
             return 0;
