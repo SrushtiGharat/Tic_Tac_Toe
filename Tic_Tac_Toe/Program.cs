@@ -9,42 +9,50 @@ namespace Tic_Tac_Toe
     {
         static void Main(string[] args)
         {
-            int location = 0;
-            int status = 0;
-            
-            Console.WriteLine("Welcome to Tic-Tac-Toe");
-            TicTacToe ticTacToe = new TicTacToe();
-            ticTacToe.CreateBoard();
-            char playerLetter = ticTacToe.PlayerChoice();
-            char computerLetter = ticTacToe.getComputerLetter(playerLetter);
-            string player = ticTacToe.PlayerStartingFirst();
-            while (true)
+            bool flag = true;
+            while (flag)
             {
-                Console.WriteLine(player + " plays");
-                if (player == "USER")
-                {                
-                    location = ticTacToe.MoveToLocation();
-                    ticTacToe.MakeAMove(location, playerLetter);
-                    status = ticTacToe.getGameStatus(playerLetter);
-                }
-                if(player == "COMPUTER")
+                int location = 0;
+                int status = 0;
+
+                Console.WriteLine("Welcome to Tic-Tac-Toe");
+                TicTacToe ticTacToe = new TicTacToe();
+                ticTacToe.CreateBoard();
+                char playerLetter = ticTacToe.PlayerChoice();
+                char computerLetter = ticTacToe.getComputerLetter(playerLetter);
+                string player = ticTacToe.PlayerStartingFirst();
+                while (true)
                 {
-                    location = ticTacToe.GetComputerMove(computerLetter,playerLetter);
-                    ticTacToe.MakeAMove(location, computerLetter);
-                    status = ticTacToe.getGameStatus(computerLetter);
+                    Console.WriteLine(player + " plays");
+                    if (player == "USER")
+                    {
+                        location = ticTacToe.MoveToLocation();
+                        ticTacToe.MakeAMove(location, playerLetter);
+                        status = ticTacToe.getGameStatus(playerLetter);
+                    }
+                    if (player == "COMPUTER")
+                    {
+                        location = ticTacToe.GetComputerMove(computerLetter, playerLetter);
+                        ticTacToe.MakeAMove(location, computerLetter);
+                        status = ticTacToe.getGameStatus(computerLetter);
+                    }
+                    ticTacToe.ShowBoard();
+                    if (status == 0)
+                    {
+                        Console.WriteLine(player + " Has Won The Game");
+                        break;
+                    }
+                    if (status == 1)
+                    {
+                        Console.WriteLine("It's a tie");
+                        break;
+                    }
+                    player = ticTacToe.PlayerChance(player);
                 }
-                ticTacToe.ShowBoard();
-                if(status == 0)
-                {
-                    Console.WriteLine(player + " Has Won The Game");
-                    break;
-                }
-                if (status == 1)
-                {
-                    Console.WriteLine("It's a tie");
-                    break;
-                }
-                player = ticTacToe.PlayerChance(player);
+                Console.WriteLine("Do you want to play again?");
+                string answer = Console.ReadLine();
+                if (answer.Equals("No"))
+                    flag = false;              
             }
 
         }
